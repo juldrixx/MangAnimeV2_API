@@ -23,7 +23,7 @@ parser_fanfox.prototype.getInformation = function () {
                 let day_date = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                 let month_date = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-                let title = xpath.select('//channel[1]/title', doc)[0].firstChild.data;
+                let name = xpath.select('//channel[1]/title', doc)[0].firstChild.data;
                 let release_url = xpath.select('//item[1]/link', doc)[0].firstChild.data;
                 let release_date = {
                     'day_name': day_date.indexOf(date.split(',')[0]),
@@ -38,12 +38,12 @@ parser_fanfox.prototype.getInformation = function () {
                 let release_language = 'VUS';
 
                 resolve({
-                    'title': title.trim(),
+                    'name': name.trim(),
                     'release_url': release_url,
                     'release_date': release_date,
                     'release_number': release_number,
-                    'release_language': release_language,
-                    'title_url': _.rss_url.split('/')[_.rss_url.split('/').length - 1].split('.xml')[0],
+                    'language': release_language,
+                    'name_url': _.rss_url.split('/')[_.rss_url.split('/').length - 1].split('.xml')[0],
                     'url': release_url.split('/manga/')[0] + '/manga/' + release_url.split('/manga/')[1].split('/')[0] + '/',
                 });
             }

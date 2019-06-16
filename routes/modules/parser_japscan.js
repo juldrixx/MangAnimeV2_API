@@ -40,12 +40,12 @@ parser_japscan.prototype.getInformation = function () {
                 let release_language = xpath.select('//item[1]/title', doc)[0].firstChild.data.split(' ')[xpath.select('//item[1]/title', doc)[0].firstChild.data.split(' ') - 1];
 
                 resolve({
-                    'title': title.trim(),
+                    'name': title.trim(),
                     'release_url': release_url,
                     'release_date': release_date,
                     'release_number': release_number,
-                    'release_language': release_language,
-                    'title_url': _.rss_url.split('/')[_.rss_url.split('/').length - 2],
+                    'language': release_language,
+                    'name_url': _.rss_url.split('/')[_.rss_url.split('/').length - 2],
                     'url': _.rss_url.replace('rss', 'manga'),
                 });
             }
