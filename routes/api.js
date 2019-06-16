@@ -175,7 +175,7 @@ app.post('/add', function (request, response) {
 
     let promise = new Promise(function (resolve, reject) {
         !Object.keys(parsers).includes(site) && reject('Parser for ' + site + ' doesn\'t exist');
-        let parser = new parsers[site](media.rss_url);
+        let parser = new parsers[site](rss_url);
 
         parser.getInformation().then(function (infoMedia) {
 
