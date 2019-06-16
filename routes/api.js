@@ -63,6 +63,7 @@ app.get('/get/:type/:username', function (request, response) {
 
                                         db.updateMedia(media.id, data).then(result => {
                                             resolve({
+                                                'id': media.id,
                                                 'title': infoMedia.title,
                                                 'last_release_viewed': parseFloat(media.last_viewed),
                                                 'last_release': parseFloat(infoMedia.release_number),
