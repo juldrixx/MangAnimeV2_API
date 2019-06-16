@@ -70,7 +70,7 @@ app.get('/get/:type/:username', function (request, response) {
                                                 'release_url': infoMedia.release_url,
                                                 'release_language': infoMedia.release_language,
                                                 'url': infoMedia.url,
-                                                'not_completed': infoMedia.release_number === media.last_viewed,
+                                                'not_completed': infoMedia.release_number !== media.last_viewed,
                                             });
                                         })
                                         .catch(error => {
