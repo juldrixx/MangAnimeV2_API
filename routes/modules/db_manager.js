@@ -62,7 +62,7 @@ db_manager.prototype.getMedia = function(username, name_type) {
             reject('Database connection failed');
         }
 
-        const request = 'SELECT m.id as id, ml.last_viewed, m.name, m.release_number, m.release_date, m.language, m.rss_url, m.url, m.release_url FROM user u JOIN medialist ml on u.id = ml.user_id JOIN media m on ml.Media_id = m.id JOIN typemedia tm on tm.id = m.TypeMedia_id WHERE u.username = ? and tm.name_type = ? and ml.followed = 1;';
+        const request = 'SELECT ml.id as id, ml.last_viewed, m.name, m.release_number, m.release_date, m.language, m.rss_url, m.url, m.release_url FROM user u JOIN medialist ml on u.id = ml.user_id JOIN media m on ml.Media_id = m.id JOIN typemedia tm on tm.id = m.TypeMedia_id WHERE u.username = ? and tm.name_type = ? and ml.followed = 1;';
 
         _.db.query(request, [username, name_type], function(err, rows){
             if (err) reject(err);
