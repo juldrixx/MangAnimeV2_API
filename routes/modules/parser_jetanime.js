@@ -34,11 +34,12 @@ parser_jetanime.prototype.getInformation = function () {
                     'minute': parseInt(date.split(' ')[4].split(':')[1]),
                     'second': parseInt(date.split(' ')[4].split(':')[2]),
                 };
-                let release_number = parseFloat(title.split(' ')[title.split(' ').length - 2]);
+                let release_number_string = title.split(' ')[title.split(' ').length - 2];
+                let release_number = parseFloat(release_number_string);
                 let release_language = title.split(' ')[title.split(' ').length - 1];
 
                 resolve({
-                    'name': title.replace(release_number, '').replace(release_language, '').replace('Episode', '').trim(),
+                    'name': title.replace(release_number_string, '').replace(release_language, '').replace('Episode', '').trim(),
                     'release_url': release_url,
                     'release_date': release_date,
                     'release_number': release_number,
