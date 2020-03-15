@@ -13,7 +13,7 @@ var db_manager = function (type) {
     
     _.db.connect((err) => {
         if (err) {
-          _.connected = false;
+            _.connected = false;
         }
         _.connected = true;
     });
